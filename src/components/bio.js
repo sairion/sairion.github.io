@@ -1,49 +1,38 @@
-/**
- * Bio component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
+import { Link } from "gatsby"
 import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-
-import { rhythm } from "../utils/typography"
+// import Image from "gatsby-image"
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        // const { social } = data.site.siteMetadata
         return (
-          <div
-            style={{
-              display: `flex`,
-              marginBottom: rhythm(2.5),
-            }}
-          >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
+          <div className="bio">
+            <ul className="social-media-list">
+              <li>
+                <span>
+                  <strong className="__handle-title">Github</strong>
+                  <a className="username" href="https://github.com/sairion">
+                    @sairion
+                  </a>
+                </span>
+              </li>
+
+              <li>
+                <span>
+                  <strong className="__handle-title">Twitter</strong>
+                  <a className="username" href="https://twitter.com/sairion">
+                    @sairion
+                  </a>
+                </span>
+              </li>
+            </ul>
             <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+              <strong>Jaeho Lee</strong> is a Seoul-based software engineer building user
+              interfaces for websites. <Link to={`/about`}>more</Link>
             </p>
           </div>
         )
@@ -54,13 +43,7 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
+
     site {
       siteMetadata {
         author
