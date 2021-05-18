@@ -1,14 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticQuery, graphql } from "gatsby"
-// import Image from "gatsby-image"
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        // const { social } = data.site.siteMetadata
         return (
           <div className="bio">
             <ul className="social-media-list">
@@ -24,15 +22,19 @@ function Bio() {
               <li>
                 <span>
                   <strong className="__handle-title">Twitter</strong>
-                  <a className="username" href="https://twitter.com/sairion">
-                    @sairion
+                  <a
+                    className="username"
+                    href="https://twitter.com/jaeholee_dev"
+                  >
+                    @jaeholee_dev
                   </a>
                 </span>
               </li>
             </ul>
             <p>
-              <strong>Jaeho Lee</strong> is a Seoul-based software engineer building user
-              interfaces for websites. <Link to={`/about`}>more</Link>
+              <strong>Jaeho Lee</strong> is a Seoul-based software engineer
+              building user interfaces for websites.{" "}
+              <Link to={`/about`}>more</Link>
             </p>
           </div>
         )
@@ -43,7 +45,6 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-
     site {
       siteMetadata {
         author
