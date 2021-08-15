@@ -1,3 +1,7 @@
+:root {
+  --global-active-color: #3e9dff;
+}
+
 body,
 h1,
 h2,
@@ -19,7 +23,7 @@ figure {
 }
 
 body {
-  font-family: "Lato", Hevetica, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   font-weight: 300;
@@ -77,17 +81,22 @@ h6 {
   font-weight: 300
 }
 
+h5.inner-subtitle {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
 a {
-  color: #36C34A;
-  text-decoration: none
+  color: #424242;
+  text-decoration: underline;
 }
 
 a:visited {
-  color: #36C34A
+  color: #6b6b6b;
 }
 
 a:hover {
-  color: #36C34A
+  color: #353535;
 }
 
 blockquote {
@@ -104,8 +113,10 @@ blockquote>:last-child {
 }
 
 pre,
-code {
-  font-family: "Source Code Pro", monospace;
+code,
+.code {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, SF Mono, Consolas,
+    Liberation Mono, Menlo, monospace;
   font-size: 15px;
   padding: 2px;
   border-radius: 5px;
@@ -175,41 +186,31 @@ body {
   min-width: 360px
 }
 
-a {
-  text-decoration: none
-}
-
-a,
-a:visited {
-  color: #36C34A
-}
-
-a:hover {
-  color: #36C34A
-}
-
 .site-header {
   min-height: 80px;
   padding-bottom: 60px;
   position: relative
 }
 
+.site-header h1 a {
+  text-decoration: none;
+}
+
 .site-header h1,
 .site-header h3 {
   line-height: 45px;
   height: 45px;
-  text-transform: uppercase;
   font-size: 16px;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   margin-bottom: 0;
   font-size: 16px;
   display: inline-block;
   font-weight: bold;
-  vertical-align: middle
+  vertical-align: middle;
 }
 
 .site-header h1 a {
-  color: #424242;
+  color: var(--global-active-color);
 }
 
 .main-container {
@@ -241,28 +242,6 @@ a:hover {
 .footer-heading {
   font-size: 18px;
   margin-bottom: 15px
-}
-
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-bottom: 10px;
-}
-
-.social-media-list li {
-  height: 40px;
-  line-height: 20px;
-  padding: 10px 0px
-}
-
-.social-media-list .__fake {
-  margin: 0 auto;
-  width: 100%;
-  padding: 0;
-  height: 1px;
-  max-width: 200px;
-  border-top: 1px solid #ccc
 }
 
 .footer-col-wrapper {
@@ -342,10 +321,15 @@ a:hover {
   margin-bottom: 0;
 }
 
+.post-each h3 a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .post-each time {
   display: inline-block;
-  font-size: 14px;
-  color: #B6B6B6
+  font-size: 13px;
+  color: #999999
 }
 
 .post-link {
@@ -358,12 +342,10 @@ a:hover {
   font-size: 16px
 }
 
-.post-description {
-}
-
 .post-each .post-description {
-  padding: 10px 0 3px;
-  font-size: 16px
+  padding: 10px 0;
+  font-size: 14px;
+  margin-bottom: 0;
 }
 
 .post .post-description {
@@ -410,31 +392,32 @@ a:hover {
 
 .resume.post-content ul li:before {
   content: "\25B4 ";
-}
-
-.resume.post-content h3 {
-  font-size: 1.2em;
-  font-weight: 700;
-  padding-top: 0.3em;
-}
-
-.resume.post-content h4 {
-  font-size: 1em;
-  text-transform: uppercase;
-  margin-bottom: 0.3em;
-  letter-spacing: 1px;
+  padding-right: 3px;
 }
 
 .resume.post-content p {
   font-size: 0.9em;
 }
 
+.resume.post-content h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-top: 1em;
+  border-top: 1px dotted #c7c7c7;
+}
+
+.resume.post-content h4 {
+  font-size: 1em;
+  margin-bottom: 0.3em;
+  letter-spacing: 1px;
+  font-weight: 600
+}
+
 .resume .sub-date {
   font-size: 12px;
-  margin-left: 8px;
-  vertical-align: middle;
   text-transform: initial;
   letter-spacing: 0;
+  display: block;
 }
 
 .wrapper {
@@ -453,10 +436,6 @@ a:hover {
   width: 45px;
   height: 45px;
   display: inline-block
-}
-
-.social-media-list .__handle-title {
-  padding-right: 10px
 }
 
 code {
@@ -744,27 +723,33 @@ code {
 
 @media (min-width: 800px) {
   .page-content {
-    max-width: 800px;
+    max-width: 640px;
   }
 }
+
 @media (min-width: 600px) {
   .page-content .blog-post {
     max-width: 600px;
   }
 }
+
 .page-content h1 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.9em;
 }
+
 .page-content .blog-post p {
   line-height: 1.9em;
 }
+
 .page-content .blog-post h2 {
-  font-weight: 700;
+  font-weight: 600;
 }
+
 .page-content .blog-post h3 {
-  font-weight: 700;
+  font-weight: 600;
 }
+
 .page-content .blog-post h4 {
   font-weight: 500;
   font-size: 1.2em;
@@ -775,10 +760,12 @@ code {
 .page-content .wrapper .home {
   width: 85%
 }
+
 .page-content .to-home {
   padding-bottom: 15px;
   display: block;
 }
+
 .page-content hr {
   padding-bottom: 15px;
   padding-top: 15px;
@@ -800,11 +787,19 @@ code {
   footer {
     display: none
   }
-  body a, body a:visited, .page-content a {
+
+  body a,
+  body a:visited,
+  .page-content a {
     color: #424242;
-    text-decoration: underline;
+    text-decoration: none;
   }
-  body .main-container { padding-top: 10px;padding-left:10px;}
+
+  body .main-container {
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
   body .site-header {
     padding-bottom: 20px;
   }

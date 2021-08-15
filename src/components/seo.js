@@ -33,6 +33,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
+      defaultTitle={`${site.siteMetadata.title} | Software Engineer`}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {

@@ -1,59 +1,63 @@
+/** @jsx jsx */
 import React from "react"
 import { Link } from "gatsby"
-import { StaticQuery, graphql } from "gatsby"
+import { css, jsx } from "@emotion/react"
 
 function Bio() {
   return (
-    <StaticQuery
-      query={bioQuery}
-      render={data => {
-        return (
-          <div className="bio">
-            <ul className="social-media-list">
-              <li>
-                <span>
-                  <strong className="__handle-title">Github</strong>
-                  <a className="username" href="https://github.com/sairion">
-                    @sairion
-                  </a>
-                </span>
-              </li>
+    <div
+      className="bio"
+      css={css`
+        ul {
+          list-style: none;
+          margin-left: 0;
+          margin-bottom: 0;
+          padding: 10px 0;
+        }
+        ul li {
+          height: 35px;
+          line-height: 35px;
+        }
 
-              <li>
-                <span>
-                  <strong className="__handle-title">Twitter</strong>
-                  <a
-                    className="username"
-                    href="https://twitter.com/jaeholee_dev"
-                  >
-                    @jaeholee_dev
-                  </a>
-                </span>
-              </li>
-            </ul>
-            <p>
-              <strong>Jaeho Lee</strong> is a Seoul-based software engineer
-              building user interfaces for websites.{" "}
-              <Link to={`/about`}>more</Link>
-            </p>
-          </div>
-        )
-      }}
-    />
+        ul .__handle-title {
+          padding-right: 10px;
+        }
+      `}
+    >
+      <ul>
+        <li>
+          <span>
+            <strong className="__handle-title">GitHub</strong>
+            <a className="username" href="https://github.com/sairion">
+              @sairion
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <span>
+            <strong className="__handle-title">Twitter</strong>
+            <a className="username" href="https://twitter.com/jaeholee_dev">
+              @jaeholee_dev
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <span>
+            <strong className="__handle-title">Velog</strong>
+            <a className="username" href="https://velog.io/@jaeholee">
+              @jaeholee
+            </a>
+          </span>
+        </li>
+
+        <li>
+          <Link to={`/about`}>About me</Link>
+        </li>
+      </ul>
+    </div>
   )
 }
-
-const bioQuery = graphql`
-  query BioQuery {
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`
 
 export default Bio

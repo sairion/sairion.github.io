@@ -3,7 +3,7 @@ module.exports = {
     title: `Jaeho Lee`,
     author: `Jaeho Lee`,
     description: `Jaeho Lee's personal blog`,
-    siteUrl: `https://jaeholee.org/`,
+    siteUrl: `https://jaeholee.org`,
     social: {
       twitter: `@jaeholee_dev`,
     },
@@ -68,5 +68,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
   ],
 }

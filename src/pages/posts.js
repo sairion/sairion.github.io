@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { css, jsx } from "@emotion/react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,15 +11,6 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="" />
-      <h3
-        css={css`
-          font-size: 1.1em;
-          font-weight: bold !important;
-          padding-bottom: 20px;
-        `}
-      >
-        Posts
-      </h3>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (

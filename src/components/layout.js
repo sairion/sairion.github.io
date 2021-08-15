@@ -1,33 +1,50 @@
+/** @jsx jsx */
 import React from "react"
 import { Link } from "gatsby"
+import { css, jsx } from "@emotion/react"
 
 import Bio from "./bio"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+const Header = () => (
+  <header className="site-header">
+    <h1>
+      <Link to="/">Jaeho Lee</Link>
+    </h1>
+    <div>
+      <span
+        className="code"
+        css={css`
+          font-size: 0.8rem;
+          color: #bbb;
+          letter-spacing: 2px;
+          block-size: min-content;
+          background-color: white;
+        `}
+      >
+        software-engineer
+      </span>
+    </div>
+  </header>
+)
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1>
-        <Link to={`/`}>{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3>
-        <Link to={`/`}>{title}</Link>
-      </h3>
-    )
-  }
+const Footer = ({ children }) => (
+  <footer className="page-content">
+    {children}
+    <p className="copyright-notice">© Jaeho Lee</p>
+  </footer>
+)
+
+const Layout = ({ location, children }) => {
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const isRoot = location.pathname === rootPath
+
   return (
     <div>
-      <header className="site-header">{header}</header>
+      <Header />
       <main className="page-content">{children}</main>
-      <footer className="page-content">
+      <Footer>
         <Bio />
-        <p className="copyright-notice">© 2021 Jaeho Lee</p>
-      </footer>
+      </Footer>
     </div>
   )
 }
