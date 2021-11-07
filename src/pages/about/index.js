@@ -6,6 +6,12 @@ import { css, jsx } from "@emotion/react"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
+const OutLink = ({ children, ...props }) => (
+  <a rel="noopener" target="_blank" {...props}>
+    {children}
+  </a>
+)
+
 const CareerItem = ({
   title,
   companyName,
@@ -14,6 +20,7 @@ const CareerItem = ({
   children,
   TitleComponent = "h4",
 }) => {
+  console.log(title, homepage)
   return (
     <div
       css={css`
@@ -25,7 +32,7 @@ const CareerItem = ({
       `}
     >
       <TitleComponent>
-        <span>{title}</span>, <a href={homepage}>{companyName}</a>{" "}
+        <span>{title}</span>, <OutLink href={homepage}>{companyName}</OutLink>{" "}
         {duration ? <sub className="sub-date">{duration}</sub> : null}
       </TitleComponent>
       {children}
@@ -81,7 +88,7 @@ const AboutPage = ({ data, location }) => {
       <SEO title="" />
       <div className="post">
         <article className="post-content resume">
-          <Section title="저의 강점">
+          <Section title="경력 요약">
             <ul>
               <li>
                 <strong>모던 웹 개발 전문가</strong>
@@ -115,14 +122,30 @@ const AboutPage = ({ data, location }) => {
           <Section title="경력">
             <CareerItem
               title="소프트웨어 엔지니어"
+              companyName="그린랩스"
+              homepage="https://www.greenlabs.co.kr"
+              duration="2021년 11월 – 현재"
+            >
+              <Summary>
+                <li>
+                  프론트엔드 개발자로 합류하여,{" "}
+                  <OutLink href="https://www.farmmorning.com">팜모닝</OutLink>{" "}
+                  서비스를 개발하고 그 외 UI 개발에 관련된 작업을 진행합니다.
+                </li>
+              </Summary>
+            </CareerItem>
+            <CareerItem
+              title="소프트웨어 엔지니어"
               companyName="넥스클라우드"
               homepage="https://www.nexcloud.co.kr"
-              duration="2021년 1월 – 현재"
+              duration="2021년 1월 – 2021년 11월"
             >
               <Summary>
                 <li>
                   시니어 프론트엔드 개발자의 역할을 맡아,{" "}
-                  <a href="https://nexclipper.github.io">넥스클리퍼</a>{" "}
+                  <OutLink href="https://nexclipper.github.io">
+                    넥스클리퍼
+                  </OutLink>{" "}
                   프로메테우스 웹 콘솔 개발 프로젝트를 개발하고 있습니다.
                 </li>
               </Summary>
@@ -150,7 +173,7 @@ const AboutPage = ({ data, location }) => {
               <Summary>
                 <li>
                   매출 및 사업 관리 솔루션{" "}
-                  <a href="https://cashnote.kr">캐시노트</a> 앱 개발
+                  <OutLink href="https://cashnote.kr">캐시노트</OutLink> 앱 개발
                 </li>
               </Summary>
               <Projects>
@@ -234,7 +257,7 @@ const AboutPage = ({ data, location }) => {
                 <li>Flask, SQLAlchemy, PostgreSQL</li>
                 <li>Leaflet, D3, Mapbox 등을 이용한 지도 상 노드 시각화</li>
                 <li>국제화 경험</li>
-                <li>React, Reflux, ES2015+</li>
+                <li>React, ES2015+</li>
                 <li>Flask, SQLAlchemy</li>
                 <li>인테그레이션, 기능 테스트 (Python-Selenium, Pytest)</li>
               </Experiences>
@@ -263,7 +286,7 @@ const AboutPage = ({ data, location }) => {
               <li>
                 파이썬과 Node 기반 백엔드 프로그래밍, 커맨드라인 툴링 개발 경험
               </li>
-              <li>웹 디자인 경험</li>
+              <li>웹 디자인, UI/UX 리서치 경험</li>
             </ul>
           </Section>
 
@@ -281,57 +304,68 @@ const AboutPage = ({ data, location }) => {
           </Section>
 
           <Section title="오픈소스 작업과 기여">
+            <span>개인작업</span>
             <ul>
               <li>
-                <a href="https://github.com/webpack-contrib/svg-inline-loader">
+                <OutLink href="https://github.com/webpack-contrib/svg-inline-loader">
                   webpack-contrib/svg-inline-loader
-                </a>
+                </OutLink>
               </li>
               <li>
-                <a href="https://github.com/sairion/svg-inline-react">
+                <OutLink href="https://github.com/sairion/svg-inline-react">
                   sairion/svg-inline-react
-                </a>
+                </OutLink>
               </li>
 
               <li>
-                <a href="https://github.com/sairion/buble-loader">
+                <OutLink href="https://github.com/sairion/buble-loader">
                   sairion/buble-loader
-                </a>
+                </OutLink>
               </li>
 
               <li>
-                <a href="https://github.com/sairion/svgcleaner-node">
+                <OutLink href="https://github.com/sairion/svgcleaner-node">
                   sairion/svgcleaner-node
-                </a>
+                </OutLink>
               </li>
 
               <br />
               <span>기여</span>
 
               <li>
-                <a href="https://github.com/facebook/react">facebook/react</a>{" "}
-                <a href="https://github.com/facebook/react/pull/3240">#3240</a>{" "}
+                <OutLink href="https://github.com/facebook/react">
+                  facebook/react
+                </OutLink>{" "}
+                <OutLink href="https://github.com/facebook/react/pull/3240">
+                  #3240
+                </OutLink>{" "}
                 (번역)
               </li>
               <li>
-                <a href="https://github.com/reflux/refluxjs">spoike/reflux</a>{" "}
-                <a href="https://github.com/reflux/refluxjs/commit/5a5e6d81a88cabc5e65bce58fded77883ac27bcf">
+                <OutLink href="https://github.com/reflux/refluxjs">
+                  spoike/reflux
+                </OutLink>{" "}
+                <OutLink href="https://github.com/reflux/refluxjs/commit/5a5e6d81a88cabc5e65bce58fded77883ac27bcf">
                   #371
-                </a>{" "}
+                </OutLink>{" "}
                 (버그 수정)
               </li>
               <li>
-                <a href="https://github.com/nodejs/node">nodejs/node</a>{" "}
-                <a href="https://github.com/nodejs/node/pull/494">#494</a> (버그
-                수정)
+                <OutLink href="https://github.com/nodejs/node">
+                  nodejs/node
+                </OutLink>{" "}
+                <OutLink href="https://github.com/nodejs/node/pull/494">
+                  #494
+                </OutLink>{" "}
+                (버그 수정)
               </li>
               <li>
-                <a href="https://github.com/RazrFalcon/svgcleaner">
+                <OutLink href="https://github.com/RazrFalcon/svgcleaner">
                   RazrFalcon/svgcleaner
-                </a>{" "}
-                <a href="https://github.com/RazrFalcon/svgcleaner/pull/79">
+                </OutLink>{" "}
+                <OutLink href="https://github.com/RazrFalcon/svgcleaner/pull/79">
                   #79
-                </a>{" "}
+                </OutLink>{" "}
                 (기능 추가)
               </li>
             </ul>
@@ -351,9 +385,9 @@ const AboutPage = ({ data, location }) => {
           <Section title="저술">
             <ul>
               <li>
-                <a href="https://spoqa.github.io/2015/05/14/living-on-the-edge.html">
+                <OutLink href="https://spoqa.github.io/2015/05/14/living-on-the-edge.html">
                   Living on The Edge: 가장 앞에서 개발 (다시) 시작하기
-                </a>{" "}
+                </OutLink>{" "}
                 (Living on The Edge: Rewriting app on the cutting edge)
               </li>
             </ul>
@@ -362,9 +396,9 @@ const AboutPage = ({ data, location }) => {
           <Section title="연락">
             <ul>
               <li>
-                <a href="https://www.linkedin.com/profile/view?id=102091444">
+                <OutLink href="https://www.linkedin.com/profile/view?id=102091444">
                   LinkedIn
-                </a>
+                </OutLink>
               </li>
               <li>
                 <a href="mailto:me@jaeholee.org">me@jaeholee.org</a>

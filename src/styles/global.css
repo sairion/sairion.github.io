@@ -1,5 +1,6 @@
 :root {
   --global-active-color: #3e9dff;
+  --triangle-icon-color: #c1c1c1;
 }
 
 body,
@@ -393,6 +394,9 @@ body {
 .resume.post-content ul li:before {
   content: "\25B4 ";
   padding-right: 3px;
+  font-size: 0.6rem;
+  vertical-align: 1px;
+  color: var(--triangle-icon-color)
 }
 
 .resume.post-content p {
